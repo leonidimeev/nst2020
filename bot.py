@@ -9,7 +9,7 @@ import config
 import telebot
 from time import sleep
 from parser import *
-from telebot import types
+#from telebot import types
 import threading
 
 # buttons of groups
