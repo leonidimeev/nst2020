@@ -32,14 +32,14 @@ def echo_msg(message):
 	timetable = get_timetable(message.text)
 	bot.send_message(message.chat.id, timetable)
 
-def get_groups_every_1hour():
+# def get_groups_every_1hour():
 
-	markup.row('a', 'v')
-	markup.row('c', 'd', 'e')
+# 	markup.row('a', 'v')
+# 	markup.row('c', 'd', 'e')
 
 if __name__ == '__main__':
-	timer = threading.Timer(1440.0, get_groups_every_1hour) 
-	timer.start()
+	# timer = threading.Timer(1440.0, get_groups_every_1hour) 
+	# timer.start()
 
 	while True:
 		try:
