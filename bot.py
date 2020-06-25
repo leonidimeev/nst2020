@@ -13,7 +13,7 @@ from parser import *
 import threading
 
 # buttons of groups
-markup = types.ReplyKeyboardMarkup()
+# markup = types.ReplyKeyboardMarkup()
 
 bot = telebot.TeleBot(config.token)	
 
