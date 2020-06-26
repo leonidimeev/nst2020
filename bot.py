@@ -27,8 +27,8 @@ def handle_start_help(message):
 заполненное расписание сейчас есть у группы ИФ-БА-ПОИ-19''')
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
-def echo_msg(message):
-	print(type(message.text))
+def get_(message):
+	print('кто то написал ' + message.text)
 	timetable = get_timetable(message.text)
 	bot.send_message(message.chat.id, timetable)
 
