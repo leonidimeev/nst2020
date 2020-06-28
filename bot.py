@@ -8,15 +8,17 @@
 import config
 import telebot
 from time import sleep
-from parser import *
-#from telebot import types
+import parser
+# from telebot import types
 import threading
+# подключение dialogflow ai
+import dialogflow_ai
 
 # buttons of groups
 # markup = types.ReplyKeyboardMarkup()
 
 bot = telebot.TeleBot(config.token)	
-
+bot.remove_webhook() # отключает вебхук
 
 # Обработчик команд '/start' и '/help'.
 @bot.message_handler(commands=['start', 'help'])
@@ -27,9 +29,17 @@ def handle_start_help(message):
 заполненное расписание сейчас есть у группы ИФ-БА-ПОИ-19''')
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
-def get_(message):
+def what_message(message):
 	print('кто то написал ' + message.text)
-	timetable = get_timetable(message.text)
+	A = dialogflow_ai.send_to_dialogflow(message.text)
+	if (A[1] == 'Get_timetable'):
+		get_(message)
+	else:
+		bot.send_message(message.chat.id, A[3])
+
+
+def get_(message):
+	timetable = parser.get_timetable(message.text)
 	bot.send_message(message.chat.id, timetable)
 
 # def get_groups_every_1hour():

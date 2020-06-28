@@ -14,7 +14,7 @@ import requests
 # 	return response.read()
 
 def beautiful_out(content):
-	text = BeautifulSoup(content).text.replace('\t', '')
+	text = BeautifulSoup(content, features = "html.parser").text.replace('\t', '')
 	while '\n\n' in text:
 		text = text.replace('\n\n', '\n')
 	text = text.split('\n')
