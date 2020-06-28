@@ -11,11 +11,7 @@ from time import sleep
 import parser
 # from telebot import types
 import threading
-# подключение dialogflow ai
-import dialogflow_ai
-
-# buttons of groups
-# markup = types.ReplyKeyboardMarkup()
+import dialogflow_ai  # подключение dialogflow ai
 
 bot = telebot.TeleBot(config.token)	
 bot.remove_webhook() # отключает вебхук
@@ -36,7 +32,6 @@ def what_message(message):
 		get_(message)
 	else:
 		bot.send_message(message.chat.id, A[3])
-
 
 def get_(message):
 	timetable = parser.get_timetable(message.text)

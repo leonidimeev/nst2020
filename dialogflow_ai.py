@@ -2,15 +2,16 @@
     dialogflow        0.5.1
     google-api-core   1.4.1
 """
+import config
 import os
 import dialogflow
 from google.api_core.exceptions import InvalidArgument
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = '/Users/leonidimeev/Desktop/nefu/kursovaya3kurs/nst2020/nst2020-khqpqh-4091dfcabd3f.json'
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = config.GOOGLE_APPLICATION_CREDENTIALS
 
-DIALOGFLOW_PROJECT_ID = 'nst2020-khqpqh'
-DIALOGFLOW_LANGUAGE_CODE = 'ru-RU'
-SESSION_ID = 'TEST'
+DIALOGFLOW_PROJECT_ID = config.DIALOGFLOW_PROJECT_ID
+DIALOGFLOW_LANGUAGE_CODE = config.DIALOGFLOW_LANGUAGE_CODE
+SESSION_ID = config.SESSION_ID
 
 def send_to_dialogflow(text_to_be_analyzed):
 
