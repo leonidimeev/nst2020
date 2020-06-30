@@ -35,7 +35,18 @@ def what_message(message):
 
 def get_(message):
 	timetable = parser.get_timetable(message.text)
-	bot.send_message(message.chat.id, timetable)
+	if (len(timetable) > 56):
+		bot.send_message(message.chat.id, timetable)
+	else:
+		bot.send_message(message.chat.id, '''
+Что-то пошло не так.
+Вашей группы нет на сайте svfu.ru/raspisanie 
+Или вы вводите группу неправильно
+Введите название группы в формате (пример): ИМИ-БА-ПМИ-17''')
+
+def get_group_from_message(message):
+	text = message.text
+	
 
 # def get_groups_every_1hour():
 
