@@ -2,7 +2,7 @@
 #
 # Timetable - parser script for NST2020
 # 
-#
+# urok gita u ft 09.10.2020
 #
 
 import urllib.request
